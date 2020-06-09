@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2></h2>
+    <button>点击</button>
+    <script>
+        let msg = "Hello world";
+        let h2 = document.getElementsByTagName("h2");
+   
+        h2[0].innerHTML = msg;
+
+        let button = document.getElementsByTagName("button")[0];
+
+        button.addEventListener("click", (e) => {
+            msg = "Hello React";
+            h2[0].innerHTML = msg
+        })
+    </script>
+</body>
+
+</html>
