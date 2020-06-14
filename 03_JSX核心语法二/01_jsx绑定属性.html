@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+    <script src="../react/react.development.js"></script>
+    <script src="../react/react-dom.development.js"></script>
+    <script src="../react/babel.min.js"></script>
+    <script type="text/babel">
+        //封装组件
+        class App extends React.Component{
+            constructor(){
+                super();
+                this.state={
+                 title:"我是标题哈哈哈",
+                 imgUrl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592126821307&di=285cf3c938e214f9b372429e5d06bc80&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F14%2F75%2F01300000164186121366756803686.jpg",
+                 link:"https://www.baidu.com",
+                 active:true
+                }
+            }
+
+            render(){
+              const {title,imgUrl,link,active} =this.state;
+                return (<div>
+
+                    {/*1、绑定普通属性*/}
+                    <h2 title={title}>我是标题</h2>
+                    <img src={imgUrl} alt="" width="200" height="200"/>
+                    <a href={link}>这是一个链接</a>
+
+                    {/*2、绑定class*/}
+                    {/*在JSX中html和js是混在一起写的，而html的class属性和js的关键字class有冲突，所以
+                    这里改成className，htmlFor（for）同理
+                    */}
+                    <div className="box title">我是一个div元素</div>
+                    <div className={"box title"+active?"active":""}>我是一个div元素</div>
+                    <label htmlFor=""></label>
+
+                    {/*3、绑定style*/}
+                      {/*绑定style时需要用两对{},外面一层{}表示里面是js代码，
+                    里面一层是js对象的{}。
+                    当style属性有连接符-时，可以用小驼峰如fontSize也可以用""包裹起来如"font-size"
+                    */}
+                    <div style={{color:"red",fontSize:"30px"}}>我是一个div元素</div>
+                    <div style={{color:"red","font-size":"30px"}}>我也是一个div元素</div>
+
+                    </div>)
+            }
+       }
+
+       //渲染组件
+     ReactDOM.render((<App/>),document.getElementById("app"))
+
+    </script>
+</body>
+
+</html>
