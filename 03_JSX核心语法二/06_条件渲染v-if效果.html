@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div id="app"></div>
     <script src="../react/react.development.js"></script>
     <script src="../react/react-dom.development.js"></script>
     <script src="../react/babel.min.js"></script>
     <script type="text/babel">
-        //封装组件
-        class App extends React.Component{
-            constructor(){
-                super();
-                this.state={
-                    isLogin:true,
-                }
-            }
+      //封装组件
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            isLogin: true,
+          };
+        }
 
-            render(){
-                const {isLogin} =this.state;
+        render() {
+          const { isLogin } = this.state;
 
-                //1.通过if判断，适合逻辑代码很多的情况
-                let welcome =null;
-                let btnText =null;
-                if(isLogin){
-                    welcome =<h2>欢迎回来~</h2>
-                    btnText ="退出登录"
-                }else{
-                    btnText ="登录"
-                }
-                return (<div>
-                    <button onClick={()=>this.setState({isLogin:!isLogin})}>{btnText}</button>
-                    {welcome}
-                    <hr/>
-                   
-                    </div>)
-            }
-       }
+          //1.通过if判断，适合逻辑代码很多的情况
+          let welcome = null;
+          let btnText = null;
+          if (isLogin) {
+            welcome = <h2>欢迎回来~</h2>;
+            btnText = "退出登录";
+          } else {
+            btnText = "登录";
+          }
+          return (
+            <div>
+              <button onClick={() => this.setState({ isLogin: !isLogin })}>
+                {btnText}
+              </button>
+              {welcome}
+              <hr />
+              <div>
+                <dIV>123</dIV>
+                <h2>123</h2>
+              </div>
+            </div>
+          );
+        }
+      }
 
-       //渲染组件
-     ReactDOM.render((<App/>),document.getElementById("app"))
-
+      //渲染组件
+      ReactDOM.render(<App />, document.getElementById("app"));
     </script>
-</body>
-
+  </body>
 </html>
