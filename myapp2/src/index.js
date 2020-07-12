@@ -31,8 +31,14 @@ import './02_组件通信案例/style.css'
 // import App from './04_setState的使用/02_setState是异步更新的'
 // import App from './04_setState的使用/03_setState是同步更新的'
 // import App from './04_setState的使用/04_setState数据的合并'
-import App from './04_setState的使用/05_setState本身的合并'
+// import App from './04_setState的使用/05_setState本身的合并'
+// import App from './11_高阶组件的使用/01_高阶组件的定义方式'
+// import App from './11_高阶组件的使用/03_高阶组件应用-增强props'
+// import App from './11_高阶组件的使用/04_高阶组件应用-登录鉴权'
+// import App from './11_高阶组件的使用/05_高阶组件应用-生命周期劫持'
+// import App from './11_高阶组件的使用/06_高阶组件应用-生命周期劫持增强'
+import App from './12_组件内容补充/01_ref的转发'
 
 
 
-ReactDom.render(<App/>,document.getElementById("root"))
+ReactDom.render(<App name="why"/>,document.getElementById("root"))
