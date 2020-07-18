@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 
-import Home from './views/Home';
-import About from './views/About'
+import Home from './views/Home2';
+import About from './views/About2'
 
 export default class App extends PureComponent {
   render() {
