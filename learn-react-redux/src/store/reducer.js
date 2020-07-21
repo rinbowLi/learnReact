@@ -1,5 +1,5 @@
 
-import { ADD_COUNT, SUB_COUNT } from './const.js'
+import { ADD_COUNT, SUB_COUNT,CHANGR_COUNT } from './const.js'
 
 const initialState = {
   count: 0
@@ -12,6 +12,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, count: state.count + action.num };
     case SUB_COUNT:
       return { ...state, count: state.count - action.num };
+    case CHANGR_COUNT:
+      return { ...state, count: action.num };
     default:
       return state;
   }
