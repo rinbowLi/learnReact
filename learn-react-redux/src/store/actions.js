@@ -23,4 +23,4 @@ export const getHomeData = async dispatch=>{
     console.log(res)
     console.log(res.data.data.banner.list)
     dispatch(changeAction(res.data.data.banner.list.length))
-}
+}   
