@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1、普通函数
+    // function foo(){
+    //   console.log("foo运行了")
+    // }
+
+    //2.generator的基本使用
+    //生成器函数
+    function* foo() {
+      console.log(111)
+      yield "Hello";
+      console.log(222)
+      yield "World";
+      console.log(333)
+      yield "coderwhy";
+      console.log(444)
+    }
+
+    //3、使用迭代器
+    //iterator:迭代器
+    //调用一次next()会消耗一次迭代器
+    // {value: "Hello", done: false}
+    // {value: "World", done: false}
+    // {value: "coderwhy", done: false}
+    // {value: undefined, done: true}
+    // let result = foo();
+    // console.log(result.next())
+    // console.log(result.next())
+    // console.log(result.next())
+    // console.log(result.next())
+
+    //4、生成器的执行顺序
+
+    //5、练习：定义一个生成器依次生成1-10；
+    function* generatorNum() {
+      for (let i = 1; i < 11; i++) {
+        yield i
+      }
+    }
+
+    // let num = generatorNum();
+    // console.log(num.next())
+    // console.log(num.next())
+    // console.log(num.next())
+    // console.log(num.next())
+    // console.log(num.next())
+    // console.log(num.next())
+
+
+    //6.generator和promise一起使用
+
+    function* bar() {
+      console.log(111)
+      let result = yield new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Hello generator")
+        }, 1500)
+      })
+      console.log(result)
+    }
+
+    let ret = bar();
+
+    //第一个next获取到的是promise对象
+    ret.next().value.then(res => {
+      //第二个next执行后赋值，传入参数会复制到变量上
+      ret.next(res)
+    })
+  </script>
+</body>
+
+</html>
