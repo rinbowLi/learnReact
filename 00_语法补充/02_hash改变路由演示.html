@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="#/home">首页</a><a href="#/about">关于</a>
+
+  <div class="router-view"></div>
+
+  <script>
+    const routerViewEL = document.getElementsByClassName("router-view")[0];
+    window.addEventListener("hashchange", () => {
+      console.log("hashchange")
+      switch (location.hash) {
+        case '#/home':
+          routerViewEL.innerHTML = "首页";
+          break;
+        case '#/about':
+          routerViewEL.innerHTML = "关于";
+          break;
+        default:
+          routerViewEL.innerHTML = "";
+          break;
+      }
+    })
+  </script>
+</body>
+
+</html>
