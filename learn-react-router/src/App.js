@@ -1,15 +1,19 @@
 import React, { PureComponent } from 'react'
-import { BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
+import { Route, Link, NavLink, Switch,withRouter } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Profile from './pages/Profile'
+import Product from './pages/Product'
 import './app.css'
 
-export default class App extends PureComponent {
+class App extends PureComponent {
+
+  toProduct(){
+    this.props.history.push("/product")
+  }
   render() {
     return (
       <div>
-        <BrowserRouter>
           {/* <Link to="/">首页</Link>
           <Link to="/about">关于</Link>
           <Link to="/profile">我的</Link> */}
@@ -27,6 +31,8 @@ export default class App extends PureComponent {
           <NavLink to="/about" activeClassName="activeNavLink">关于</NavLink>
           <NavLink to="/profile" activeClassName="activeNavLink">我的</NavLink>
           <NavLink to="/abc" activeClassName="activeNavLink">abc</NavLink>
+          <NavLink to="/productDetail/abcde" activeClassName="activeNavLink">产品详情</NavLink>
+          <button onClick={()=>this.toProduct()}>产品</button>
 
           {/* Switch组件的作用，路由会进行排他操作，从上到下只匹配第一个 */}
           <Switch>
@@ -34,13 +40,13 @@ export default class App extends PureComponent {
             <Route path="/about" component={About} />
             <Route path="/profile" component={Profile} />
             <Route path="/abc" component={Profile} />
+            <Route path="/product" component={Product} />
+            <Route path="/productDetail/:id" component={Product} />
             <Route path="/:id" component={Profile} />
           </Switch>
-
-        </BrowserRouter>
-
-
       </div>
     )
   }
 }
+
+export default withRouter(App)
