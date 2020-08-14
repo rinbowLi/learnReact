@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function Counter2() {
   /**
-   * useState 本身是一个函数，React包中的（需要传入一个默认值，否则state会返回一个undefined）
+   * useState 本身是一个函数，React包中的（需要传入一个默认值，否则state会返回一个undefined）useState也可以传入一个函数
    * 然后返回一个数组；数组第一项是state,
    * 数组第二项是setState
    */
