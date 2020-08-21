@@ -20,7 +20,9 @@ import UseImperativeHandleDemo from './useImperativeHandle的基本使用/useImp
 import UseEffectDemo from './useLayoutEffect的基本使用/useEffect的基本使用'
 import UseLayoutEffectDemo from './useLayoutEffect的基本使用/useLayoutEffect的基本使用'
 import CustomHook from './自定义hook/认识自定义hook'
-import ContextShareDemo from './自定义hook/自定义hook的练习'
+import ContextShareDemo from './自定义hook/自定义hook的练习-context共享'
+import ScrollTopHook from './自定义hook/自定义hook的练习-scroll-top的共享'
+import LocalStorageHookDemo from './自定义hook/自定义hook的联系-localStorage'
 
 
 export const UserContext = createContext()
@@ -69,11 +71,14 @@ export default class App extends PureComponent {
         {/* {show && <CustomHook />}
         <button onClick={() => this.setState({ show: !show })}>点击切换</button> */}
 
-        <UserContext.Provider value={{name:"why",age:18}}>
+        {/* <UserContext.Provider value={{name:"why",age:18}}>
           <ThemeContext.Provider value={{color:"red",fontSize:"20px"}}>
             <ContextShareDemo />
           </ThemeContext.Provider>
-        </UserContext.Provider>
+        </UserContext.Provider> */}
+
+        {/* <ScrollTopHook/> */}
+        <LocalStorageHookDemo/>
 
       </div>
     )
